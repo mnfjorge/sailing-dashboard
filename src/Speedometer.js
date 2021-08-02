@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { getLastLocation } from './services/locationService';
 import { convertMsToKnots } from './utils/convertMsToKnots';
 
@@ -18,11 +18,21 @@ export function Speedometer() {
     }, []);
 
     return (
-        <Text style={styles.text}>{typeof speed !== 'number' ? 'N/A' : Number.parseFloat(convertMsToKnots(speed)).toFixed(1)}<Text style={styles.label}>knots</Text></Text>
+        <View style={styles.container}>
+            <Text style={styles.text}>{typeof speed !== 'number' ? 'N/A' : Number.parseFloat(convertMsToKnots(speed)).toFixed(1)}</Text>
+            <Text style={styles.label}>knots</Text>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 3,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+    },
     text: {
         color: '#fff',
         fontSize: 120,

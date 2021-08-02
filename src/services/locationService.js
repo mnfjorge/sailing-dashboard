@@ -72,7 +72,7 @@ TaskManager.defineTask(LOCATION_TASK, ({ data: { locations }, error }) => {
 export async function startLocationService() {
   startLocationUpdatesAsync(LOCATION_TASK, {
     accuracy: LocationAccuracy.BestForNavigation,
-    distanceInterval: 1,
+    distanceInterval: 5,
     activityType: ActivityType.OtherNavigation
   });
 }
