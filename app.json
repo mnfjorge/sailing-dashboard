@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "sailing-dashboard",
+    "slug": "sailing-dashboard",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "sailing-dashboard"
+}
