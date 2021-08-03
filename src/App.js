@@ -3,10 +3,18 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, ToastAndroid, View } from 'react-native';
 import { requestBackgroundPermissionsAsync } from 'expo-location';
 import { Dashboard } from './Dashboard';
+import { Logs } from './Logs';
 import { Map } from './Map';
 import { startLocationService, stopLocationService } from './services/locationService';
 
+const Tabs = {
+  Dashboard: 'Dashboard',
+  Logs: 'Logs',
+}
+
 export default function App() {
+  const [tab, setTab] = React.useState(Tabs.Dashboard);
+
   React.useEffect(() => {
     (async () => {
       let { status } = await requestBackgroundPermissionsAsync();
@@ -26,9 +34,14 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
-      <Dashboard />
-      <Map />
+      <StatusBar style="light" />
+      {tab === Tabs.Dashboard && <>
+        <Dashboard />
+        <Map />
+      </>}
+      {tab === Tabs.Logs && <>
+        <Logs />
+      </>}
     </View>
   );
 }
@@ -41,5 +54,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#001357',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: 20
   }
 });
