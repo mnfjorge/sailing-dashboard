@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Compass } from './Compass';
+import { Distance } from './Distance';
 import { GpsStatus } from './GpsStatus';
 import { Speedometer } from './Speedometer';
 
@@ -9,7 +10,7 @@ export function Dashboard() {
     return (
         <View style={styles.container}>
             <View style={styles.stats}>
-                <GpsStatus />
+                <Distance />
                 <Compass />
             </View>
             <Speedometer />
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 10,
+        marginTop: 20,
     },
     stats: {
         display: 'flex',

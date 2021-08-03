@@ -1,0 +1,6 @@
+const EARTH_CIRCUNFERENCE_IN_METERS = 6371000;
+const METERS_IN_ONE_NAUTICAL_MILE = 1852;
+
+export function convertHDistanceToNm(distance) {
+    return distance * EARTH_CIRCUNFERENCE_IN_METERS / METERS_IN_ONE_NAUTICAL_MILE;
+}
